@@ -1,5 +1,5 @@
 # Using GRPC with NodeJS
-An Example showing how to use gRPC with NodeJS. This is a simple unary RPC call.
+An Example showing how to use gRPC-js with NodeJS. This is a simple unary RPC call.
 
 Client sends a Request Message to the Server. The Server processes the request and then sends a Response message back to the Client.
 
