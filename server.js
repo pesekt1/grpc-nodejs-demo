@@ -1,4 +1,4 @@
-import grpc from "grpc";
+import grpc from "@grpc/grpc-js";
 import protoLoader from "@grpc/proto-loader";
 import _ from "lodash";
 import * as url from "url";
@@ -24,13 +24,15 @@ function getDetails(call, callback) {
   });
 }
 
-function main() {
-  let server = new grpc.Server();
-  server.addService(employee_proto.Employee.service, {
-    getDetails: getDetails,
-  });
-  server.bind("0.0.0.0:4500", grpc.ServerCredentials.createInsecure());
-  server.start();
-}
-
-main();
+let server = new grpc.Server();
+server.addService(employee_proto.Employee.service, {
+  getDetails: getDetails,
+});
+server.bindAsync(
+  "0.0.0.0:4500",
+  grpc.ServerCredentials.createInsecure(),
+  () => {
+    console.log("Server running at http://0.0.0.0:4500");
+    server.start();
+  }
+);

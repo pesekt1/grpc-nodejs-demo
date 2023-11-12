@@ -5,11 +5,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start:client": "node client.js",
+    "start:server": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.9.9",
     "@grpc/proto-loader": "^0.1.0",
-    "grpc": "^1.11.0",
     "lodash": "^4.6.1",
     "url": "^0.11.0"
   },
